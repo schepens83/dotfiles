@@ -1,0 +1,4 @@
+# Feedback 13-apr
+
+- do a git merge with master from refactor branch. That way it is easier for me to merge the refactor branch with master without issues.
+- you have not ensured that the line_items for item have the right new collectible_variant_id. If I look in old orders that include items. They are now no longer linked with the right collectible_variant_id

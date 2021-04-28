@@ -1,0 +1,45 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/sander/apps/picturescraps/" . "app/")
+ ("/home/sander/" . ".emacs.d/")
+ ("/home/sander/apps/" . "picturescraps/")
+ ("/home/sander/apps/picturescraps/app/" . "models/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/sander/.emacs.d/"
+ "/home/sander/apps/picturescraps/app/models/"
+ "/home/sander/apps/picturescraps/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "init.el"
+ "cart.rb"
+ "Gemfile"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/sander/.emacs.d/" (24676 49711 417840 487000) "backups/" "init.el~" "auto-save-list/" "ido.last" "elpa/" "./" "init.el" ".#init.el" "projectile-bookmarks.eld" "#init.el#" "../" "tutorial/")
+
+ ("/home/sander/apps/picturescraps/" (24676 46380 22343 767000) "app/" "config/" "README.md" "node_modules/" "lib/" "spec/" "gem_graph.png" ".byebug_history" ".ruby-version" ".#Gemfile" "#Gemfile#" ".DS_Store" "Gemfile" "postcss.config.js" "config.ru" "./" "yarn.lock" "Guardfile" "log/" "db/" "Rakefile" ".rspec" "vendor/" ".git/" "erd.pdf" "tmp/" "../" "package.json" "bin/" ".gitignore" "babel.config.js" "srv/" ".browserslistrc" "Gemfile.lock" "public/")
+
+ ("/home/sander/apps/" (24673 32562 668992 489000) "fireflyIII-mysql/" "docker-curriculum/" "costcomb/" "picturescraps/" "./" "dev_seed.sqlite3" "translate/" "../" "picturescraps_img_glorifier/")
+
+ ("/home/sander/" (24675 31268 567953 726000) ".bundle/" ".emacs.d/" ".selected_editor" ".wget-hsts" "Documents/" ".fontconfig/" ".sudo_as_admin_successful" ".mozilla/" ".config/" ".gnupg/" ".rvm/" "Videos/" ".tldr/" "Desktop/" ".bash_history" ".yarnrc" ".gnome/" ".rvmrc" ".ssh/" "snap/" ".profile" ".nvidia-settings-rc" ".z" "./" ".atom/" "Templates/" ".gem/" ".lesshst" ".nv/" ".irb-history" "Pictures/" ".gitconfig" ".cache/" "data/" ".yarn/" "apps/" "../" "VirtualBox VMs/" "Downloads/" ".bashrc" "Music/" ".pki/" ".bash_logout" "Public/" ".local/")
+
+ ("/home/sander/apps/picturescraps/app/models/" (24634 7927 502007 713000) "item.rb" ".keep" "scrap.rb" "cart.rb" "user.rb" "sale_discount.rb" "producer.rb" "app_setting.rb" "favorite.rb" "./" "application_record.rb" "order.rb" "concerns/" "order_admin.rb" "line_item.rb" "../")
+
+ ("/home/sander/apps/picturescraps/app/" (24673 32494 512276 562000) "helpers/" "mailers/" ".DS_Store" "assets/" "./" "views/" "classes/" "jobs/" "javascript/" "models/" "controllers/" "../")
+
+ ("/home/sander/apps/picturescraps/app/views/" (24514 34221 876284 463000) "orders/" "layouts/" "app_settings/" "pages/" ".DS_Store" "scraps/" "items/" "./" "shared/" "devise/" "users/" "admin/" "producers/" "../" "carts/" "order_admins/" "sale_discounts/")
+
+ ("/home/sander/apps/picturescraps/app/views/pages/" (24675 27269 389540 392000) "shipping.html.erb" "payment.html.erb" "return.html.erb" "user_statistics.html.erb" "./" "stock_statistics.html.erb" "home.html.erb" "links.html.erb" "finance_statistics.html.erb" "../")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

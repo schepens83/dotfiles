@@ -1,0 +1,27 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch master
+# Changes to be committed:
+#	modified:   db/schema.rb
+#
+# Changes not staged for commit:
+#	modified:   app/controllers/transactions_controller.rb
+#	modified:   config/routes.rb
+#	modified:   db/migrate/20201223091817_add_unique_to_transactions.rb
+#	modified:   db/seeds.rb
+#
+# Untracked files:
+#	app/admin/rules.rb
+#	app/admin/transactions.rb
+#	app/controllers/rules_controller.rb
+#	app/helpers/rules_helper.rb
+#	app/models/rule.rb
+#	app/views/rules/
+#	db/migrate/20201224094233_create_rules.rb
+#	test/controllers/rules_controller_test.rb
+#	test/fixtures/rules.yml
+#	test/models/rule_test.rb
+#	test/system/rules_test.rb
+#

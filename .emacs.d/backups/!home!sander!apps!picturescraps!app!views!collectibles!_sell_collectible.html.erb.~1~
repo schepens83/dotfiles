@@ -1,0 +1,29 @@
+<p class="margin-top-25 price">
+
+	<span><%= number_to_currency(variant.price, :unit => "€ ", :delimiter => ".", separator: ",") %></strong></span>
+	<% if discount_active %>
+	<p class="margin-top-10 discount_price">
+		<span><%= number_to_currency(variant.pre_discount_price, :unit => "€ ", :delimiter => ".", separator: ",") %></strong></span>
+	</p>
+	<% end %>
+
+	<% unless variant.remarks.empty? %>
+		<span class="badge badge-less-pronounced"><span class="glyphicon glyphicon-alert"> </span> </span>
+	<% end %>
+
+</p>
+
+<p>
+	<% if user_signed_in? %>
+	<%= button_to edit_collectible_variant_path(variant), class: "btn btn-sm btn-secondary btn-block", style: style, :disabled => !user_signed_in?, title: "You can add sheets to cart when your signed in" do %>
+	<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> add to cart
+	<% end %>
+	<% else %>
+	<p>
+		<em><%= link_to "Log in", new_user_session_path %> or <%= link_to "sign up", new_user_registration_path %> to order something.</em>
+	</p>
+	<% end %>
+</p>
+
+
+

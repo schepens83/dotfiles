@@ -1,0 +1,67 @@
+<div class="col-sm-6">
+  <div class="image-det">
+    <% if browser.device.mobile? || browser.firefox? %>
+    <%= image_tag(image_url(variant.large_img_path)) %>
+    <% else %>
+    <a class="pan" data-big="<%= image_path(variant.large_img_path) %>" href="">
+      <%= image_tag(image_url(variant.large_img_path)) %>
+    </a>
+    <% end %>
+  </div>
+</div>
+<div class="col-sm-6">
+  <div class="col-xs-12 col-sm-9">
+    <h3><%= "#{variant.main_title} - #{variant.sub_title}" %></h3>
+
+    <% unless variant.remarks&.empty? %>
+    <p>
+      <span class="badge badge-less-pronounced"><span class="glyphicon glyphicon-alert"> </span><%= " #{variant.remarks}" %></span>
+    </p>
+    <% end %>
+
+    <% unless variant.ce_logo&.empty? %>
+    <p class="grey-text">
+      <%= "CE Logo: #{variant.ce_logo}" %>
+    </p>
+    <% end %>
+
+    <%= render "sell_collectible", { variant: variant, style: "width: 160px;", discount_active: @discount_active } %>
+
+    <p>
+      <%= link_to 'Back', :back %>
+    </p>
+  </div>
+
+  <div class="col-xs-12">
+
+    <% if user_signed_in? && current_user.admin? %>
+    <br>
+    <div class="well well-lg">
+      <p><%= "On stock: #{variant.amount}" %><br>
+	<%= "Amount sold: #{variant.amount_sold}" %><br>
+	<%= "Cost price: #{number_to_currency(variant.cost_price, :unit => "€ ", :delimiter => ".", separator: ",")}" %><br>
+	<br>
+	<%= link_to 'Edit this page', edit_collectible_variant_path(variant) %>
+      </p>
+
+
+      <% unless variant.on_orders.empty? or variant.on_orders.any? { |e| e == false } %>
+      <% end %>
+
+      <% unless variant.collectible.users.empty? %>
+      <div>
+	<div>Has been favourited by:
+	  <ul>
+	    <% variant.collectible.users.each do |user| %>
+	    <li><%= link_to user.fullname, user %></li>
+	    <% end %>
+	  </ul>
+	</div>
+      </div>
+      <% end %>
+
+    </div>
+    <% end %>
+
+  </div>
+</div>

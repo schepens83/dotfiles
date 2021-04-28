@@ -1,0 +1,53 @@
+
+
+;; enable MELPA repository (https://melpa.org/#/getting-started)
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+;; Comment/uncomment this line to enable MELPA Stable if desired.  See `package-archive-priorities`
+;; and `package-pinned-packages`. Most users will not need or want to do this.
+;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+(package-initialize)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (projectile-codesearch markdown-mode atom-one-dark-theme))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+
+;; some custom keybindings
+;; (global-set-key (kbd "") ')		
+
+;; load atom dark theme
+(load-theme 'atom-one-dark t)
+
+;; some text editor changes
+(set-face-attribute 'default nil :height 120)
+(when (version<= "26.0.50" emacs-version )
+  (global-display-line-numbers-mode))
+
+;; sentences end with single space
+(setq sentence-end-double-space nil)
+
+;; make C-h work as backspace.
+(normal-erase-is-backspace-mode 1)
+
+
+;; backups in .emacs folder
+(setq backup-directory-alist `(("." . "~/.emacs.d/backups")))
+(setq backup-by-copying t)
+(setq delete-old-versions t
+      kept-new-versions 6
+      kept-old-versions 2
+      version-control t)
+
+;; icomplete mode default on
+(setq icomplete-mode t)

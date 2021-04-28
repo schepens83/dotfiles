@@ -1,0 +1,13 @@
+git pull # of whatever je nodig hebt om te updaten naar de rails versie met 2.5.9
+
+sudo service nginx stop
+
+rvm install 2.5.9
+rvm --default use 2.5.9
+
+passenger-config about ruby-command
+
+nano /etc/nginx/sites-available/picture-scraps.conf # replace passenger line from previous
+nano /etc/nginx/sites-available/poesieplaatjes.conf # replace passenger line from previous
+
+sudo service nginx restart

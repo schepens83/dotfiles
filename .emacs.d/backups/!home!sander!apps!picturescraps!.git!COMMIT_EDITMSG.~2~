@@ -1,0 +1,15 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch refactoring
+# Your branch is ahead of 'origin/refactoring' by 13 commits.
+#   (use "git push" to publish your local commits)
+#
+# Changes to be committed:
+#	new file:   app/views/collectibles/_collectible_variant.html.erb
+#	modified:   app/views/collectibles/show.html.erb
+#
+# Untracked files:
+#	config/master.key
+#

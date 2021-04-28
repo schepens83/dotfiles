@@ -1,0 +1,4 @@
+## Feedback commit 7-4-2021
+
+- former scrap and item model still have the old private methods. Rename to collectible_variant and collectible as well
+- 

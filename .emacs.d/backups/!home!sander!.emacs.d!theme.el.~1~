@@ -1,0 +1,8 @@
+;; load atom dark theme
+(load-theme 'atom-one-dark t)
+
+;; some text editor theme changes
+(set-face-attribute 'default nil :height 120)
+(when (version<= "26.0.50" emacs-version )
+  (global-display-line-numbers-mode))
+(setq frame-title-format nil)

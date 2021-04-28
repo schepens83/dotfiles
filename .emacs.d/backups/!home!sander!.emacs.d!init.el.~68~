@@ -1,0 +1,138 @@
+;; enable MELPA repository (https://melpa.org/#/getting-started)
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+;; Comment/uncomment this line to enable MELPA Stable if desired.  See `package-archive-priorities`
+;; and `package-pinned-packages`. Most users will not need or want to do this.
+;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+(package-initialize)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
+ '(package-selected-packages
+   (quote
+    (magit use-package google-this all-the-icons all-the-icons-dired dired-single smart-mode-line auto-complete yasnippet-snippets yasnippet rg adaptive-wrap crux expand-region helm-rg helm-projectile avy command-log-mode helm projectile-codesearch markdown-mode atom-one-dark-theme))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+
+;; stop emacs from creating backup and lock files
+(setq create-lockfiles nil)
+(setq make-backup-files nil)
+
+
+;; Helm
+(require 'helm-config)
+(setq helm-splite-window-in-side-p t
+      helm-move-to-line-cycle-in-source t)
+(helm-mode 1)
+;; helm keybindings
+(global-set-key (kbd "C-x b") 'helm-buffers-list)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "M-x") 'helm-M-x)
+;; always show helm in bottom:
+(add-to-list 'display-buffer-alist
+		    `(,(rx bos "*helm" (* not-newline) "*" eos)
+			 (display-buffer-in-side-window)
+			 (inhibit-same-window . t)
+			 (window-height . 0.4)))
+
+
+
+;; global set of keybindings
+(global-set-key (kbd "C-a") 'crux-move-beginning-of-line)
+(global-set-key (kbd "C-c I") 'crux-find-user-init-file)
+(global-set-key (kbd "C-c t") 'crux-visit-term-buffer)
+(global-set-key (kbd "C-c d") 'crux-duplicate-current-line-or-region)
+(global-set-key (kbd "M-o") 'crux-other-window-or-switch-buffer)
+;; overrides mark-whole-buffer
+(global-set-key "\C-ch" 'help-command)
+;; (global-set-key (kbd "M-g e") 'avy-goto-word-0)
+(global-set-key (kbd "C-;") 'avy-goto-char-2)
+(global-set-key (kbd "C-c r") 'query-replace)
+(require 'expand-region)
+(global-set-key (kbd "M-l") 'er/expand-region)
+(global-set-key (kbd "C-c n") 'crux-cleanup-buffer-or-region)
+(global-set-key (kbd "C-c k") 'crux-kill-other-buffers)
+(global-set-key (kbd "C-x 4 t") 'crux-transpose-windows)
+(global-set-key (kbd "C-<tab>") 'previous-buffer )
+(global-set-key (kbd "C-S-<iso-lefttab>") 'next-buffer )
+(global-set-key (kbd "M-j") (kbd "<return>")) ; makes M-j act as enter
+
+
+
+;; sentences end with single space
+(setq sentence-end-double-space nil)
+
+
+;; make C-h work as backspace.
+(global-set-key "\C-h" 'delete-backward-char)
+
+
+;; auto-complete
+;; (setq icomplete-mode t)
+(package-install 'auto-complete)
+(require 'auto-complete)
+(setq ac-dwim t)
+(ac-config-default)
+(setq ac-sources '(ac-source-yasnippet
+ac-source-abbrev
+ac-source-words-in-same-mode-buffers))
+
+
+;; projectile
+(require 'projectile)
+(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+(projectile-mode +1)
+(require 'helm-projectile)
+(helm-projectile-on)
+
+
+;; wrap lines
+(when (fboundp 'adaptive-wrap-prefix-mode)
+  (defun my-activate-adaptive-wrap-prefix-mode ()
+    "Toggle `visual-line-mode' and `adaptive-wrap-prefix-mode' simultaneously."
+    (adaptive-wrap-prefix-mode (if visual-line-mode 1 -1)))
+  (add-hook 'visual-line-mode-hook 'my-activate-adaptive-wrap-prefix-mode))
+
+
+;; yasnippets support (completes code snippets)
+(package-install 'yasnippet)
+(require 'yasnippet)
+;; (yas/load-directory "~/.emacs.d/snippets/"))
+(setq yas/indent-line nil)
+(yas-global-mode 1)
+
+
+;; ripgrep
+(require 'rg)
+(global-set-key (kbd "C-c s") #'rg-menu)
+(add-to-list 'load-path "/usr/bin/")
+(with-eval-after-load 'rg
+  rg-executable [(executable-find "rg")]
+  ;; Your settings goes here.
+  )
+
+
+;; google-this
+(use-package google-this
+  :config
+  (google-this-mode 1))
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Load additional files
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(load "~/.emacs.d/theme")
+(put 'narrow-to-region 'disabled nil)
+(load "~/.emacs.d/dired")

@@ -1,0 +1,1 @@
+("~/apps/picturescraps/" "~/Documents/picturescraps-fiverr/" "~/apps/costcomb/")

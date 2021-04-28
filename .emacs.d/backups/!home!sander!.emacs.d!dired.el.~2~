@@ -1,0 +1,4 @@
+(use-package dired-single
+	     :defer t)
+
+(define-key dired-mode-map (kbd "M-p") 'dired-up-directory) 

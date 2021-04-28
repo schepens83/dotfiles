@@ -1,0 +1,6 @@
+# Upgrade Rails app from Bootstrap 3 to 5
+
+- I have a rails 6.0 and ruby 2.5 app that can be seen [here](www.picture-scraps.com). 
+- It currently uses bootstrap 3 via the less-rails-bootstrap gem. This should be replaced to gem 'bootstrap', '~> 4.6'. 
+- As is views should be updated so they work with bootstrap 5 version.
+- One new layout should be added that uses 

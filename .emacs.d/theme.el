@@ -1,0 +1,28 @@
+(when window-system (set-frame-size (selected-frame) 120 60))
+;; disable splash screen
+(setq inhibit-splash-screen t)
+;; disable menu bar
+(menu-bar-mode -1)
+(when (display-graphic-p)
+  ;; disable scroll bar
+  (scroll-bar-mode -1))
+;; disable tool bar
+(when window-system
+    (tool-bar-mode -1))
+;; set initial scratch bar message
+(setq initial-scratch-message nil)
+;; set initial major mode to text mode
+(setq initial-major-mode 'text-mode)
+
+
+;; load atom dark theme
+(load-theme 'atom-one-dark t)
+
+;; some text editor theme changes
+(set-face-attribute 'default nil :height 110)
+(when (version<= "26.0.50" emacs-version )
+  (global-display-line-numbers-mode))
+(setq frame-title-format nil)
+
+;; smart-mode-line -> customizes line in the bottom called modeline
+(sml/setup)

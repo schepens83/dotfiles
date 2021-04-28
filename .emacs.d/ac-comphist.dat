@@ -1,0 +1,90 @@
+((("database" .
+   [1 0 0 0 0 0 0 0])
+  ("sqlite3" .
+   [1 0 0 0 0 0 0])
+  ("require" .
+   [1 0 0 0 0 0 0])
+  ("previous" .
+   [1 0 0 0 0 0 0 0])
+  ("for_sale" .
+   [2 0 0 0 0 0 0 0])
+  ("id" .
+   [2 0])
+  ("collectible" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("collectible_path" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("query-replace" .
+   [0 0 0 0 0 0 0 0 0 0 1 0 0])
+  ("libxrender-dev" .
+   [0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("able" .
+   [1 0 0 0])
+  ("to" .
+   [2 0])
+  ("production" .
+   [1 0 0 0 0 0 0 0 0 0])
+  ("server." .
+   [1 0 0 0 0 0 0])
+  ("copy" .
+   [1 0 0 0])
+  ("orders" .
+   [2 0 0 0 0 0])
+  ("booked" .
+   [1 0 0 0 0 0])
+  ("scope" .
+   [1 0 0 0 0])
+  ("price" .
+   [3 0 0 0 0])
+  ("joins" .
+   [1 0 0 0 0])
+  ("collectible_variants" .
+   [3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("where" .
+   [1 0 0 0 0])
+  ("price_min" .
+   [1 0 0 0 0 0 0 0 0])
+  ("price_max" .
+   [1 0 0 0 0 0 0 0 0])
+  ("to_pay" .
+   [1 0 0 0 0 0])
+  ("include" .
+   [2 0 0 0 0 0 0])
+  ("line_items" .
+   [1 0 0 0 0 1 0 0 0 0])
+  ("includes" .
+   [4 0 0 0 0 0 0 0])
+  ("order" .
+   [2 0 0 0 0])
+  ("Time" .
+   [1 0 0 0])
+  ("helm-buffer-list" .
+   [0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0])
+  ("lambda" .
+   [1 0 0 0 0 0])
+  ("interactive" .
+   [3 0 0 0 0 0 0 0 0 0 0])
+  ("helm" .
+   [1 0 0 0])
+  ("kbd" .
+   [1 0 0])
+  ("ibuffer" .
+   [1 0 0 0 0 0 0])
+  ("previous-buffer" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
+  ("next" .
+   [2 0 0 0])
+  ("crux-kill-other-buffers" .
+   [0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0])
+  ("next-buffer" .
+   [1 0 0 0 0 0 0 0 0 0 0])
+  ("verify_recaptcha" .
+   [0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0])
+  ("resource" .
+   [2 0 0 0 0 0 0 0])
+  ("email" .
+   [2 0 0 0 0])
+  ("Rails" .
+   [1 0 0 0 0])
+  ("score" .
+   [1 0 0 0 0])))

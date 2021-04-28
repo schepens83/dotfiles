@@ -1,0 +1,8 @@
+# Feedback 13-apr
+
+- do a git merge with master from refactor branch. That way it is easier for me to merge the refactor branch with master without issues.
+- you have not ensured that the line_items for item have the right new collectible_variant_id. If I look in old orders that include items. They are now no longer linked with the right collectible_variant_id
+- the index, index_admin and show routes and controller actions of collectible_variants are not needed. They are all seen via the collectible index and show
+- index_sale, index_collection, index_admin for collectible can all be removed. There is only one index needed and that one is not working because the index.html.erb should be adjusted for the new model. For instance it bugs out on the model not having path. that path should come from the first (or primary) collectible_variant.
+- do an search on the whole project for the keywords scrap, scraps, Scrap, item, items and Item and see what you have to change to comply with the new situation. This is the case on a lot of views and controller actions. e.g. a full project search on item\. gives 199 hits of that model. There's lots that you can ignore (e.g. in the specs files and in seeds. Also some that will eventually be deleted like in items_controller)
+  - example; in users/show there is a link to index_collection_scraps_path where the page breaks on. 
