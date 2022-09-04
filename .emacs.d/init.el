@@ -12,16 +12,17 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
+    ("c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "0b7e79de7c8d857d53c8df7449c61deb2035cb276372ea4ad65fe7e6f1b046ca" "c1284dd4c650d6d74cfaf0106b8ae42270cab6c58f78efc5b7c825b6a4580417" "37768a79b479684b0756dec7c0fc7652082910c37d8863c35b702db3f16000f8" "171d1ae90e46978eb9c342be6658d937a83aaa45997b1d7af7657546cae5985b" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
  '(package-selected-packages
    (quote
-    (web-mode magit use-package google-this all-the-icons all-the-icons-dired dired-single smart-mode-line auto-complete yasnippet-snippets yasnippet rg adaptive-wrap crux expand-region helm-rg helm-projectile avy command-log-mode helm projectile-codesearch markdown-mode atom-one-dark-theme))))
+    (projectile-rails ac-inf-ruby yari dumb-jump yaml-mode zzz-to-char dracula-theme nord-theme diff-hl which-key web-mode magit use-package google-this all-the-icons all-the-icons-dired dired-single smart-mode-line auto-complete yasnippet-snippets yasnippet rg adaptive-wrap crux expand-region helm-rg helm-projectile avy command-log-mode helm projectile-codesearch markdown-mode atom-one-dark-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
 
 
 ;; stop emacs from creating backup and lock files
@@ -46,6 +47,10 @@
 			 (window-height . 0.4)))
 
 
+;; set ruby mode for files
+(add-to-list 'auto-mode-alist
+             '("\\(?:\\.rb\\|ru\\|rake\\|thor\\|jbuilder\\|gemspec\\|podspec\\|/\\(?:Gem\\|Rake\\|Cap\\|Thor\\|Vagrant\\|Guard\\|Pod\\)file\\)\\'" . ruby-mode))
+
 
 ;; global set of keybindings
 (global-set-key (kbd "C-a") 'crux-move-beginning-of-line)
@@ -57,7 +62,9 @@
 (global-set-key "\C-ch" 'help-command)
 ;; (global-set-key (kbd "M-g e") 'avy-goto-word-0)
 (global-set-key (kbd "C-;") 'avy-goto-char-2)
-(global-set-key (kbd "C-c r") 'query-replace)
+(global-set-key (kbd "C-c C-r") 'query-replace)
+(global-set-key (kbd "C-c C-i") 'yari)
+(global-set-key (kbd "C-c r r") 'inf-ruby)
 (require 'expand-region)
 (global-set-key (kbd "M-l") 'er/expand-region)
 (global-set-key (kbd "C-c n") 'crux-cleanup-buffer-or-region)
@@ -96,6 +103,12 @@ ac-source-words-in-same-mode-buffers))
 (require 'helm-projectile)
 (helm-projectile-on)
 
+;; projectile-rails
+(require 'projectile-rails)
+(projectile-rails-global-mode)
+(add-hook 'projectile-mode-hook 'projectile-rails-on)
+(define-key projectile-rails-mode-map (kbd "C-c r") 'projectile-rails-command-map)
+
 
 ;; wrap lines
 (when (fboundp 'adaptive-wrap-prefix-mode)
@@ -109,8 +122,9 @@ ac-source-words-in-same-mode-buffers))
 (package-install 'yasnippet)
 (require 'yasnippet)
 ;; (yas/load-directory "~/.emacs.d/snippets/"))
-(setq yas/indent-line nil)
+(setq yas/indent-line 'auto)
 (yas-global-mode 1)
+(global-set-key (kbd "C-c C-y") #'yas-insert-snippet)
 
 
 ;; ripgrep
@@ -121,7 +135,9 @@ ac-source-words-in-same-mode-buffers))
   rg-executable [(executable-find "rg")]
   ;; Your settings goes here.
   )
-
+(setq rg-custom-type-aliases
+  '(("rake" .    "*.rake")
+    ))
 
 ;; google-this
 (use-package google-this
@@ -137,6 +153,22 @@ ac-source-words-in-same-mode-buffers))
   (web-mode-code-indent-offset 2))
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+
+
+;; which-key
+(require 'which-key)
+(which-key-mode 1)
+
+;; diff-hl -> shows git changes in sidebar for buffer.
+(global-diff-hl-mode)
+(add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
+(add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh)
+
+;; dumb-jump for going to definition of functions
+(add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
+(setq xref-show-definitions-function #'xref-show-definitions-completing-read)
+
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Load additional files

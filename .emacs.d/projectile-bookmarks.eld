@@ -1,1 +1,1 @@
-("~/apps/picturescraps/" "~/Documents/picturescraps-fiverr/" "~/apps/costcomb/")
+("~/apps/fireflyIII-mysql/" "~/apps/picturescraps/" "~/apps/filterrific/" "~/Documents/Fiver-Picturescraps/" "~/Documents/playbook-thirtynine/app/playbook-thirty-nine-master/" "~/apps/costcomb/")
